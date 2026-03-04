@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "WordPress (Local by Flywheel)",
+      "runtimeExecutable": "curl",
+      "runtimeArgs": ["-s", "-o", "/dev/null", "-w", "%{http_code}", "http://hm-de-lucca.local"],
+      "port": 80,
+      "description": "Site WordPress gerenciado pelo Local by Flywheel. Inicie via app Local antes de usar. URL: http://hm-de-lucca.local"
+    }
+  ]
+}
