@@ -50,6 +50,10 @@ get_header();
           </div>
           <h2 class="area-full-card-title">Direito Criminal</h2>
           <p class="area-full-card-text">Atuação técnica e estratégica na defesa de clientes em processos criminais, desde a fase investigativa até os tribunais superiores. Atendemos crimes dolosos, culposos, econômicos e tributários, com foco na garantia dos direitos constitucionais do acusado.</p>
+          <a href="<?php echo esc_url( home_url('/direito-criminal') ); ?>" class="area-card-link" style="margin-top: auto; padding-top: 20px;">
+            Ver área completa
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </a>
         </article>
 
         <article class="area-full-card reveal reveal-delay-1">
@@ -59,6 +63,10 @@ get_header();
           </div>
           <h2 class="area-full-card-title">Direito da Saúde</h2>
           <p class="area-full-card-text">Assessoria especializada em direito à saúde, com atuação em demandas contra planos de saúde, fornecimento de medicamentos e procedimentos via judicial, responsabilidade médica e hospitalar, e regulatório da saúde.</p>
+          <a href="<?php echo esc_url( home_url('/direito-da-saude') ); ?>" class="area-card-link" style="margin-top: auto; padding-top: 20px;">
+            Ver área completa
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </a>
         </article>
 
         <article class="area-full-card reveal reveal-delay-2">
@@ -68,6 +76,10 @@ get_header();
           </div>
           <h2 class="area-full-card-title">Direito Imobiliário</h2>
           <p class="area-full-card-text">Consultoria jurídica completa em negócios imobiliários, contratos de compra e venda, locações, incorporações, usucapião, regularização de imóveis e contencioso cível imobiliário.</p>
+          <a href="<?php echo esc_url( home_url('/direito-imobiliario') ); ?>" class="area-card-link" style="margin-top: auto; padding-top: 20px;">
+            Ver área completa
+            <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </a>
         </article>
 
         <!--

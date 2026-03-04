@@ -48,7 +48,9 @@
      HERO ANIMATIONS
   ============================================================ */
   function triggerHeroAnimations() {
-    var heroEls = document.querySelectorAll('.hero-badge, .hero-title, .hero-subtitle, .hero-checks, .hero-buttons, .hero-visual, .hero-scroll');
+    var heroEls = document.querySelectorAll(
+      '.hero-eyebrow, .hero-title, .hero-subtitle, .hero-checks, .hero-buttons, .hero-stats, .hero-scroll'
+    );
     heroEls.forEach(function (el) {
       el.style.animationPlayState = 'running';
     });
@@ -82,6 +84,47 @@
 
     // Initial check
     updateNavbar();
+  }
+
+  /* ============================================================
+     HERO PARALLAX / SCROLL INTERACTION
+  ============================================================ */
+  function initHeroParallax() {
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    var heroContent = hero.querySelector('.hero-content');
+    var heroImage = hero.querySelector('.hero-image');
+    if (!heroContent || !heroImage) return;
+
+    var enabled = window.innerWidth >= 768;
+    if (!enabled) return;
+
+    var lastScrollY = window.scrollY;
+    var ticking = false;
+
+    function updateParallax() {
+      var scrollY = lastScrollY;
+      var maxOffset = 80;
+      var progress = Math.min(scrollY / 800, 1);
+
+      var contentOffset = progress * 26;   // moves slightly down
+      var imageOffset   = progress * -30;  // moves slightly up
+      var scale         = 1.02 + progress * 0.03;
+
+      heroContent.style.transform = 'translateY(' + contentOffset + 'px)';
+      heroImage.style.transform   = 'translateY(' + imageOffset + 'px) scale(' + scale + ')';
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      lastScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
   }
 
   /* ============================================================
@@ -346,6 +389,7 @@
   function init() {
     initPreloader();
     initNavbar();
+    initHeroParallax();
     initMobileMenu();
     initReveal();
     initStaggerReveal();

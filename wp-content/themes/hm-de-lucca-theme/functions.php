@@ -27,10 +27,10 @@ add_action( 'after_setup_theme', 'hm_theme_setup' );
 function hm_theme_scripts() {
     $v = '2.0.' . filemtime( get_template_directory() . '/assets/css/main.css' );
 
-    // Google Fonts
+    // Google Fonts — Manrope (modern sans-serif)
     wp_enqueue_style(
         'hm-fonts',
-        'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap',
+        'https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap',
         [],
         null
     );
@@ -85,13 +85,17 @@ add_action( 'wp_head', 'hm_preload_fonts', 1 );
 ============================================================ */
 function hm_create_pages() {
     $pages = [
-        [ 'title' => 'Áreas de Atuação', 'slug' => 'areas-de-atuacao', 'template' => 'page-areas.php' ],
-        [ 'title' => 'Equipe',           'slug' => 'equipe',           'template' => 'page-equipe.php' ],
-        [ 'title' => 'Blog',             'slug' => 'blog',             'template' => '' ],
-        [ 'title' => 'Fale Conosco',     'slug' => 'fale-conosco',     'template' => '' ],
-        [ 'title' => 'Trabalhe Conosco', 'slug' => 'trabalhe-conosco', 'template' => '' ],
+        [ 'title' => 'Áreas de Atuação', 'slug' => 'areas-de-atuacao',   'template' => 'page-areas.php' ],
+        [ 'title' => 'Equipe',           'slug' => 'equipe',             'template' => 'page-equipe.php' ],
+        [ 'title' => 'Blog',             'slug' => 'blog',               'template' => '' ],
+        [ 'title' => 'Fale Conosco',     'slug' => 'fale-conosco',       'template' => '' ],
+        [ 'title' => 'Trabalhe Conosco', 'slug' => 'trabalhe-conosco',   'template' => '' ],
         [ 'title' => 'Política de Privacidade', 'slug' => 'politica-de-privacidade', 'template' => '' ],
-        [ 'title' => 'Termos de Uso',    'slug' => 'termos-de-uso',    'template' => '' ],
+        [ 'title' => 'Termos de Uso',    'slug' => 'termos-de-uso',      'template' => '' ],
+        // Páginas individuais de área de atuação
+        [ 'title' => 'Direito Criminal',    'slug' => 'direito-criminal',    'template' => 'page-area.php' ],
+        [ 'title' => 'Direito da Saúde',    'slug' => 'direito-da-saude',    'template' => 'page-area.php' ],
+        [ 'title' => 'Direito Imobiliário', 'slug' => 'direito-imobiliario', 'template' => 'page-area.php' ],
     ];
 
     foreach ( $pages as $p ) {
@@ -132,6 +136,30 @@ function hm_ensure_setup() {
     // Only run once (check if home page already exists)
     if ( get_page_by_path( 'home' ) || get_option( 'page_on_front' ) ) return;
     hm_create_pages();
+}
+
+// Garante que as páginas individuais de área existam (mesmo com tema já ativo)
+add_action( 'init', 'hm_ensure_area_pages', 25 );
+function hm_ensure_area_pages() {
+    $area_pages = [
+        [ 'title' => 'Direito Criminal',    'slug' => 'direito-criminal',    'template' => 'page-area.php' ],
+        [ 'title' => 'Direito da Saúde',    'slug' => 'direito-da-saude',    'template' => 'page-area.php' ],
+        [ 'title' => 'Direito Imobiliário', 'slug' => 'direito-imobiliario', 'template' => 'page-area.php' ],
+    ];
+    foreach ( $area_pages as $p ) {
+        if ( ! get_page_by_path( $p['slug'] ) ) {
+            $id = wp_insert_post( [
+                'post_title'   => $p['title'],
+                'post_name'    => $p['slug'],
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => '',
+            ] );
+            if ( $id && ! is_wp_error( $id ) ) {
+                update_post_meta( $id, '_wp_page_template', $p['template'] );
+            }
+        }
+    }
 }
 
 /* ============================================================

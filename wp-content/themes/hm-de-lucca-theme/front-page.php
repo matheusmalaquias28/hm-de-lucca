@@ -77,17 +77,13 @@ get_header();
     <!-- RIGHT: Image -->
     <div class="hero-image" aria-hidden="true">
       <?php
-      // Para substituir: faça upload de uma foto do escritório/advogado
-      // e adicione o caminho abaixo como src da <img>
+      // Foto principal do advogado no hero
       ?>
-      <div class="img-placeholder" style="width:100%; height:100%; min-height:600px;"></div>
-      <!--
       <img
-        src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-foto.jpg"
-        alt="HM De Lucca Advocacia"
+        src="http://hm-de-lucca.local/wp-content/uploads/2026/03/hero-image-hm-de-lucca.jpg"
+        alt="HM De Lucca Advocacia — advogado"
         loading="eager"
       />
-      -->
 
       <!-- Stats overlay -->
       <div class="hero-stats" aria-label="Diferenciais">
@@ -106,8 +102,8 @@ get_header();
       </div>
     </div><!-- /hero-image -->
 
-    <!-- Scroll indicator (on hero-content side) -->
-    <div class="hero-scroll" aria-hidden="true" style="position:absolute; bottom:40px; left:25%;">
+    <!-- Scroll indicator (centered at bottom of hero) -->
+    <div class="hero-scroll" aria-hidden="true">
       <div class="hero-scroll-line"></div>
       <span>Rolar</span>
     </div>
@@ -120,16 +116,16 @@ get_header();
   ============================================================ -->
   <div class="img-strip" aria-hidden="true">
     <div class="img-strip-item">
-      <div class="img-placeholder" style="width:100%;height:100%;"></div>
-      <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/foto-01.jpg" alt="Escritório" loading="lazy" /> -->
+    
+      <img src="/wp-content/uploads/2026/03/img-2.jpg" alt="Escritório" loading="lazy" /> 
     </div>
     <div class="img-strip-item">
-      <div class="img-placeholder" style="width:100%;height:100%;background:linear-gradient(140deg,#122030,#1c3449);"></div>
-      <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/foto-02.jpg" alt="Reunião" loading="lazy" /> -->
+     
+    <img src="/wp-content/uploads/2026/03/6787342.jpg" alt="Building" loading="lazy"> 
     </div>
     <div class="img-strip-item">
-      <div class="img-placeholder" style="width:100%;height:100%;background:linear-gradient(140deg,#1a2e40,#0b1a27);"></div>
-      <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/foto-03.jpg" alt="Consultório" loading="lazy" /> -->
+      
+      <img src="/wp-content/uploads/2026/03/Mask-group41234124.jpg" alt="Consultório" loading="lazy"> 
     </div>
   </div>
 
@@ -159,7 +155,7 @@ get_header();
 
         <!-- Imagem do escritório -->
         <div class="sobre-intro-img img-placeholder reveal reveal-delay-2" role="img" aria-label="Foto do escritório">
-          <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/escritorio.jpg" alt="HM De Lucca — Escritório" loading="lazy" style="width:100%;height:100%;object-fit:cover;"> -->
+       <img src="/wp-content/uploads/2026/03/escritorio-hm.jpg" alt="HM De Lucca — Escritório" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
         </div>
 
       </div>
@@ -230,7 +226,7 @@ get_header();
           </div>
           <h3 class="area-card-title">Direito Criminal</h3>
           <p class="area-card-text">Defesa técnica e estratégica em processos criminais, com acompanhamento especializado em todas as fases processuais.</p>
-          <a href="<?php echo esc_url( home_url('/areas-de-atuacao') ); ?>" class="area-card-link">
+          <a href="<?php echo esc_url( home_url('/direito-criminal') ); ?>" class="area-card-link">
             Saiba mais
             <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
           </a>
@@ -244,7 +240,7 @@ get_header();
           </div>
           <h3 class="area-card-title">Direito da Saúde</h3>
           <p class="area-card-text">Assessoria especializada em saúde, planos de saúde, responsabilidade médica e acesso a tratamentos via judicial.</p>
-          <a href="<?php echo esc_url( home_url('/areas-de-atuacao') ); ?>" class="area-card-link">
+          <a href="<?php echo esc_url( home_url('/direito-da-saude') ); ?>" class="area-card-link">
             Saiba mais
             <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
           </a>
@@ -258,7 +254,7 @@ get_header();
           </div>
           <h3 class="area-card-title">Direito Imobiliário</h3>
           <p class="area-card-text">Consultoria e contencioso em direito imobiliário, contratos e negócios jurídicos imobiliários.</p>
-          <a href="<?php echo esc_url( home_url('/areas-de-atuacao') ); ?>" class="area-card-link">
+          <a href="<?php echo esc_url( home_url('/direito-imobiliario') ); ?>" class="area-card-link">
             Saiba mais
             <svg viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
           </a>
@@ -302,14 +298,14 @@ get_header();
 
       <!-- Imagem lado esquerdo -->
       <div class="diferencial-img reveal" role="img" aria-label="Foto do diferencial técnico">
-        <div class="img-placeholder" style="width:100%;height:100%;min-height:560px;"></div>
-        <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/diferencial.jpg" alt="Diferencial técnico" loading="lazy" style="width:100%;height:100%;object-fit:cover;"> -->
+
+       <img src="/wp-content/uploads/2026/03/image-39304.jpg" alt="Diferencial técnico" loading="lazy" style="width:100%;height:100%;object-fit:cover;"> -->
       </div>
 
       <!-- Texto lado direito (dark) -->
       <div class="diferencial-body">
         <div class="section-label reveal">Diferencial</div>
-        <h2 class="section-title reveal" id="diferencial-title">Diferencial<br><em>Técnico</em></h2>
+        <h2 class="section-title2 reveal" id="diferencial-title">Diferencial<br><em>Técnico</em></h2>
 
         <blockquote class="diferencial-quote reveal">
           "Cada caso avaliado sob múltiplas perspectivas jurídicas, com estratégia conjunta e responsável."
@@ -436,9 +432,9 @@ get_header();
 
       <!-- Imagem -->
       <div class="contato-img-side reveal" role="img" aria-label="Foto de contato">
-        <div class="img-placeholder" style="width:100%;height:100%;min-height:500px;background:linear-gradient(140deg,#0b1a27,#1c3449);"></div>
-        <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contato-foto.jpg" alt="Entre em contato" loading="lazy" style="width:100%;height:100%;object-fit:cover;"> -->
-      </div>
+        
+    <img src="/wp-content/uploads/2026/03/localizacao-mapa.jpg" alt="Entre em contato" loading="lazy" style="width:100%;height:100%;object-fit:cover;"> -->
+      </div> 
 
       <!-- Info -->
       <div class="contato-info-side">
