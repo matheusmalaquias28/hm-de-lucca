@@ -126,6 +126,14 @@ function hm_create_pages() {
 }
 add_action( 'after_switch_theme', 'hm_create_pages' );
 
+// Also run on init so pages/menu get created even if theme was already active
+add_action( 'init', 'hm_ensure_setup', 20 );
+function hm_ensure_setup() {
+    // Only run once (check if home page already exists)
+    if ( get_page_by_path( 'home' ) || get_option( 'page_on_front' ) ) return;
+    hm_create_pages();
+}
+
 /* ============================================================
    BODY CLASSES
 ============================================================ */

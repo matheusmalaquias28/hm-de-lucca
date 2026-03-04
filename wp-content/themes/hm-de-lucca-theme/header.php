@@ -4,22 +4,18 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
   <?php wp_head(); ?>
 </head>
 
 <body <?php body_class('loading'); ?>>
-
 <?php wp_body_open(); ?>
 
 <!-- ============================================================
-     PRELOADER
+     PRELOADER — Light theme
 ============================================================ -->
 <div id="preloader" role="status" aria-label="Carregando...">
   <div class="preloader-inner">
-    <div class="preloader-monogram">
-      H<span>M</span>
-    </div>
+    <div class="preloader-monogram">H<span>M</span></div>
     <div class="preloader-subtitle">DE LUCCA</div>
     <div class="preloader-divider"></div>
     <div class="preloader-tagline">Advocacia</div>
@@ -27,11 +23,11 @@
   <div class="preloader-bar"></div>
 </div>
 
-<!-- Mobile Menu Overlay -->
+<!-- Mobile overlay -->
 <div id="mobileOverlay" class="mobile-menu-overlay" aria-hidden="true"></div>
 
 <!-- ============================================================
-     NAVBAR
+     NAVBAR — Light theme
 ============================================================ -->
 <header class="navbar" id="navbar" role="banner">
   <div class="container">
@@ -59,14 +55,9 @@
 
     <!-- Right side -->
     <div class="navbar-right">
-      <a href="#contato" class="btn btn-primary btn-sm">
-        Solicitar Atendimento
-      </a>
-
+      <a href="#contato" class="btn btn-primary btn-sm">Solicitar Atendimento</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
 
@@ -84,7 +75,6 @@
       wp_nav_menu([
         'theme_location' => 'primary',
         'container'      => false,
-        'menu_class'     => '',
         'fallback_cb'    => 'hm_fallback_menu_mobile',
       ]);
     ?>
@@ -96,24 +86,22 @@
 </aside>
 
 <?php
-// Fallback menus
 function hm_fallback_menu() {
   echo '<ul>';
-  echo '<li><a href="' . esc_url( home_url('/') ) . '">Início</a></li>';
+  echo '<li><a href="' . esc_url(home_url('/')) . '">Início</a></li>';
   echo '<li><a href="#sobre">Sobre</a></li>';
-  echo '<li><a href="' . esc_url( home_url('/areas-de-atuacao') ) . '">Áreas de Atuação</a></li>';
-  echo '<li><a href="' . esc_url( home_url('/equipe') ) . '">Equipe</a></li>';
-  echo '<li><a href="' . esc_url( home_url('/blog') ) . '">Conteúdo</a></li>';
+  echo '<li><a href="' . esc_url(home_url('/areas-de-atuacao')) . '">Áreas de Atuação</a></li>';
+  echo '<li><a href="' . esc_url(home_url('/equipe')) . '">Equipe</a></li>';
+  echo '<li><a href="' . esc_url(home_url('/blog')) . '">Conteúdo</a></li>';
   echo '</ul>';
 }
-
 function hm_fallback_menu_mobile() {
   echo '<ul>';
-  echo '<li><a href="' . esc_url( home_url('/') ) . '">Início</a></li>';
+  echo '<li><a href="' . esc_url(home_url('/')) . '">Início</a></li>';
   echo '<li><a href="#sobre">Sobre</a></li>';
-  echo '<li><a href="' . esc_url( home_url('/areas-de-atuacao') ) . '">Áreas de Atuação</a></li>';
-  echo '<li><a href="' . esc_url( home_url('/equipe') ) . '">Equipe</a></li>';
-  echo '<li><a href="' . esc_url( home_url('/blog') ) . '">Conteúdo</a></li>';
+  echo '<li><a href="' . esc_url(home_url('/areas-de-atuacao')) . '">Áreas de Atuação</a></li>';
+  echo '<li><a href="' . esc_url(home_url('/equipe')) . '">Equipe</a></li>';
+  echo '<li><a href="' . esc_url(home_url('/blog')) . '">Conteúdo</a></li>';
   echo '</ul>';
 }
 ?>
